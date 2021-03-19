@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -182,6 +184,8 @@ class MyHomeEntryList extends StatelessWidget {
                         DateFormat.yMEd()
                             .add_jm()
                             .format(DateTime.parse(entry.publishedAt))),
+                Image.memory(base64Decode(entry.feed.icon)),
+                // Image.network('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'),
                 Spacer(),
                 entry.starred
                     ? Icon(

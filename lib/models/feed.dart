@@ -7,6 +7,7 @@ class Feed {
   final bool disabled;
   final String etagHeader;
   final String feedUrl;
+  String icon;
   final int id;
   final String lastModifiedHeader;
   final int parsingErrorCount;
@@ -27,6 +28,7 @@ class Feed {
     this.disabled,
     this.etagHeader,
     this.feedUrl,
+    this.icon,
     this.id,
     this.lastModifiedHeader,
     this.parsingErrorCount,
@@ -49,6 +51,7 @@ class Feed {
       disabled: json['disabled'],
       etagHeader: json['etag_header'],
       feedUrl: json['feed_url'],
+      icon: '',
       id: json['id'],
       lastModifiedHeader: json['last_modified_header'],
       parsingErrorCount: json['parsing_error_count'],

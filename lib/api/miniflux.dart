@@ -114,6 +114,10 @@ Future<String> getFeeds() async {
   return await _get('/v1/feeds', <String, String>{});
 }
 
+Future<String> getFeedsIcon(int feedId) async {
+  return await _get('/v1/feeds/$feedId/icon', <String, String>{});
+}
+
 Future<bool> createFeed(Map<String, dynamic> params) async {
   return await _post('/v1/feeds', params);
 }
