@@ -155,6 +155,10 @@ class MyHomeEntryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, String> headersMap = {
+      'X-Auth-Token': 'MzqPbEDm2heOs6w1WTDRWtSIy2vaNOEejHR_t0QcVWQ='
+    };
+
     final List<Entry> entries = filterEntries(data, nav);
     return RefreshIndicator(
       onRefresh: () async {
@@ -184,7 +188,7 @@ class MyHomeEntryList extends StatelessWidget {
                         DateFormat.yMEd()
                             .add_jm()
                             .format(DateTime.parse(entry.publishedAt))),
-                Image.memory(base64Decode(entry.feed.icon)),
+                // Image.memory(base64Decode(entry.feed.icon)),
                 // Image.network('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg'),
                 Spacer(),
                 entry.starred
@@ -193,6 +197,11 @@ class MyHomeEntryList extends StatelessWidget {
                         color: Colors.amber,
                       )
                     : Text(''),
+                Image.network(
+                  "http://192.168.0.10:8080/v1/icon/1",
+                  headers: headersMap,
+                  width: 16,
+                ),
               ]),
               onTap: () {
                 Navigator.pushNamed(

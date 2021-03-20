@@ -126,6 +126,10 @@ class MyDrawer extends StatelessWidget {
       )
     ];
 
+    Map<String, String> headersMap = {
+      'X-Auth-Token': 'MzqPbEDm2heOs6w1WTDRWtSIy2vaNOEejHR_t0QcVWQ='
+    };
+
     for (Category category in data.categories) {
       // Build the feed ListTile, by category
       List<Widget> feedList = data.feeds
@@ -134,7 +138,22 @@ class MyDrawer extends StatelessWidget {
         final int count =
             unreadEntries.where((i) => i.feedId == feed.id).length;
         return ListTile(
-          title: Text('    ${feed.title} ($count)'),
+          // leading: CircleAvatar(
+          //   backgroundImage: NetworkImage(
+          //     "http://192.168.0.10:8080/v1/icon/1",
+          //     headers: headersMap,
+          //   ),
+          //   radius: 10.0,
+          // ),
+          trailing:
+            Image.network(
+              "http://192.168.0.10:8080/v1/icon/2",
+              headers: headersMap,
+              // height: 25.0,
+              width: 16.0,
+            ),
+
+          title: Text('${feed.title} ($count)'),
           onTap: () {
             if (nav.currentFeedId != feed.id) {
               nav.set(feed.id, null, feed.title);

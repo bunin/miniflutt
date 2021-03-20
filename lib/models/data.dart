@@ -111,22 +111,22 @@ class Data extends ChangeNotifier {
       }
     }
 
-    final Map<String, dynamic> iconFail = {
-          "id": 0,
-          "data":
-              "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
-          "mime_type": "image/png",
-        };
-    Map<String, dynamic> icon = {};
-    for (Feed feed in feeds) {
-      try {
-        icon = json.decode(await getFeedsIcon(feed.id));
-      } catch (e) {
-        icon = iconFail;
-      }
-      feed.icon = icon['data'].split(',')[1];
-      // print(Image.memory(base64Decode(feed.icon)));
-    }
+    // final Map<String, dynamic> iconFail = {
+    //       "id": 0,
+    //       "data":
+    //           "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+    //       "mime_type": "image/png",
+    //     };
+    // Map<String, dynamic> icon = {};
+    // for (Feed feed in feeds) {
+    //   try {
+    //     icon = json.decode(await getFeedsIcon(feed.id));
+    //   } catch (e) {
+    //     icon = iconFail;
+    //   }
+    //   feed.icon = icon['data'].split(',')[1];
+    //   // print(Image.memory(base64Decode(feed.icon)));
+    // }
 
     // Sort feeds and categories
     feeds.sort((a, b) => a.title.compareTo(b.title));
